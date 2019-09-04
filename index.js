@@ -7,8 +7,8 @@ let bottomPadding = 20;
 
 // Set dimensions for chart
 let svg = d3.select("svg")
-    .attr("width", svgWidth)
-    .attr("height", svgHeight + 20);
+    .attr("width", svgWidth + leftPadding)
+    .attr("height", svgHeight + bottomPadding);
 
 // Add horizontal scale to chart
 let xScale = d3.scaleLinear()
@@ -23,11 +23,9 @@ let yScale = d3.scaleLinear()
 // Add x axis to chart
 let x_axis = d3.axisBottom()
     .scale(xScale);
-
-let xAxisTranslate = svgHeight - bottomPadding;
-
+    
 svg.append("g")
-    .attr("transform", `translate(${leftPadding}, ${xAxisTranslate})`)
+    .attr("transform", `translate(${leftPadding}, ${svgHeight})`)
     .call(x_axis);
 
 // Add y axis to chart
@@ -35,7 +33,7 @@ let y_axis = d3.axisLeft()
     .scale(yScale);
 
 svg.append("g")
-    .attr("transform", `translate(${leftPadding}, ${bottomPadding - 40})`)
+    .attr("transform", `translate(${leftPadding}, ${bottomPadding - 20})`)
     .call(y_axis);
 
 // Add data to bar chart
@@ -47,12 +45,12 @@ let barChart = svg.selectAll("rect")
         return yScale(d)
     })
     .attr("height", function(d) {
-        return svgHeight - yScale(d) - bottomPadding
+        return svgHeight - yScale(d)
     })
     .attr("width", barWidth - barPadding)
     .attr("transform", function (d, i) {
         let translate = [barWidth * i + leftPadding, 0];
-        return "translate(" + translate + ")";
+        return `translate(${translate})`;
     });
 
 // Add data labels to bar chart
