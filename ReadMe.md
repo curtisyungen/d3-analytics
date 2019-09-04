@@ -5,7 +5,8 @@ September 2019
 
 This project serves only to allow me to practice using D3 Analytics for visualizing datasets. 
 
-Check out the project here: https://curtisyungen.github.io/d3-analytics/. <br/><br/>
+Check out the project here: https://curtisyungen.github.io/d3-analytics/.
+
 Learn more about D3 here: https://d3js.org/.
 
 <hr/>
