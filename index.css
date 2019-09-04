@@ -1,4 +1,11 @@
 .bar-chart {
+    background: lightgray;
     border: 1px solid black;
     color: black;
+}
+
+.container {
+    padding: 25px;
+    text-align: center;
+    width: 100%;
 }
